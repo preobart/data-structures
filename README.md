@@ -1,32 +1,15 @@
-# Stack
+# Data Structures
 
-push();
+Репозиторий для основных структур данных на JS.
 
-pop();
+* Stack
+* Deque
+* Queue
+* LinkedList
 
-# Queue
-
-push();
-
-shift();
-
-# Deque
-
-push();
-
-pop();
-
-shift();
-
-unshift();
-
-# LinkedList
-
-(next:) -> (next:) -> (next:) -> (next:)
-
-# DoubleLinkedList
-
-(next:, prev:) <-> (next:, prev:) <-> (next:, prev:) <-> (next:, prev:)
+[WIP]
+ 
+- Binary tree
 
 
 
