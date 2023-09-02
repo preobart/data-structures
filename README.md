@@ -7,6 +7,10 @@
 * Queue
 * LinkedList
 
+[WIP]
+ 
+- Binary tree
+
 
 
 
