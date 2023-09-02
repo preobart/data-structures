@@ -26,21 +26,3 @@ class Stack {
         return output;
     }
 }
-
-const stack = new Stack();
-const array = [];
-
-for (let i = 0; i < 10; i++) {
-    const num = {
-        x: Math.random()
-    }
-
-    stack.push(num);
-    array.push(num);
-}
-
-console.log(array);
-
-for (let i = 0; i < 11; i++) {
-    console.log(stack.pop(), array.pop());
-}
