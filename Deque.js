@@ -50,23 +50,3 @@ class Deque {
     }
 }
 
-const deque = new Deque();
-deque.unshift(1);
-deque.unshift(5);
-deque.unshift(7);
-
-const size = deque.size
-
-for (let i = 0; i < size; i++) {
-    console.log(deque.shift())
-}
-
-
-//[1]
-//[1, 5]
-//[1, 5, 7]
-
-//7
-//5
-//1
-

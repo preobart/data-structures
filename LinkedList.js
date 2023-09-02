@@ -34,9 +34,9 @@ class DoubleLinkedList {
         }
 
         if (index === this.size) {
-            let output = this.#tail
-            this.#tail.prev.next = null
-            this.#tail = this.#tail.prev
+            let output = this.#tail;
+            this.#tail.prev.next = null;
+            this.#tail = this.#tail.prev;
 
             return output;
         }
@@ -49,8 +49,8 @@ class DoubleLinkedList {
             }
 
         } else {
-            prevNode = this.#tail
-            id = this.size
+            prevNode = this.#tail;
+            id = this.size;
 
             while (id > index) {
                 prevNode = prevNode.prev;
@@ -58,10 +58,10 @@ class DoubleLinkedList {
             }
         }
 
-        prevNode.prev.next = prevNode.next
-        prevNode.next.prev = prevNode.prev
+        prevNode.prev.next = prevNode.next;
+        prevNode.next.prev = prevNode.prev;
 
-        return prevNode
+        return prevNode;
 
     }
 
@@ -88,8 +88,8 @@ class DoubleLinkedList {
         }
 
         if (index === this.size) {
-            this.#tail.next = node
-            node.prev = this.#tail
+            this.#tail.next = node;
+            node.prev = this.#tail;
 
             this.#tail = node;
             return;
@@ -106,8 +106,8 @@ class DoubleLinkedList {
             }
 
         } else {
-            prevNode = this.#tail
-            id = this.size
+            prevNode = this.#tail;
+            id = this.size;
 
             while (id > index) {
                 prevNode = prevNode.prev;
