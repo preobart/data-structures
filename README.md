@@ -9,7 +9,7 @@
 
 [WIP]
  
-- Binary tree
+- [ ] Binary tree
 
 
 
