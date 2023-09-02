@@ -10,19 +10,58 @@ class DoubleLinkedList {
         this.size = 0;
     }
 
-    log() {
-        let id = 0;
-        let prevNode = this.#head;
-
-        console.log(prevNode.data);
-
-        while (id < this.size - 1) {
-            prevNode = prevNode.next
-            console.log(prevNode.data);
-            id++;
+    remove(index) {
+        if (index < 0 || index >= this.size) {
+            throw new Error('Index is out of bounds!');
         }
-    }
-    remove(index){
+
+        this.size--
+        let prevNode = this.#head;
+        let id = 0;
+
+        if (this.size === 0) {
+            this.#head = null;
+            this.#tail = null;
+
+            return prevNode;
+        }
+
+        if (index === 0) {
+            this.#head.next.prev = null;
+            this.#head = this.#head.next;
+
+            return prevNode;
+        }
+
+        if (index === this.size) {
+            let output = this.#tail
+            this.#tail.prev.next = null
+            this.#tail = this.#tail.prev
+
+            return output;
+        }
+
+        if (index <= size / 2) {
+
+            while (id < index) {
+                prevNode = prevNode.next;
+                id++;
+            }
+
+        } else {
+            prevNode = this.#tail
+            id = this.size
+
+            while (id > index) {
+                prevNode = prevNode.prev;
+                id--;
+            }
+        }
+
+        prevNode.prev.next = prevNode.next
+        prevNode.next.prev = prevNode.prev
+
+        return prevNode
 
     }
 
@@ -60,8 +99,6 @@ class DoubleLinkedList {
         let id = 0;
 
         if (index <= size / 2) {
-            let prevNode = this.#head;
-            let id = 0;
 
             while (id < index) {
                 prevNode = prevNode.next;
@@ -96,17 +133,3 @@ class Node {
         this.prev = null;
     }
 }
-
-const list = new DoubleLinkedList();
-const array = [];
-let start = Date.now();
-
-for (let i = 0; i < 100000000; i++) {
-    list.insert(0, i);
-    // array.unshift(i);
-}
-
-let end = Date.now();
-
-console.log(`List time: ${(end - start) / 1000}ms`);
-
