@@ -7,12 +7,16 @@ class Queue {
         this.#queue = {};
     }
 
-    push(item) {
-        this.#queue[this.size] = item;
-        this.size++;
+    unshift(item) {
+        for (let i = this.size; i > 0; i--) {
+            this.#queue[i] = this.#queue[i - 1];
+        }
+
+        this.#queue[0] = item
+        this.size++
     }
 
-    pop() {
+    shift() {
         if (this.size === 0) {
             return;
         }

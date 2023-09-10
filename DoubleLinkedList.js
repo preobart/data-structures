@@ -2,24 +2,28 @@ class DoubleLinkedList {
     #head;
     #tail;
 
-    size;
+    #size;
 
     constructor() {
         this.#head = null;
         this.#tail = null;
-        this.size = 0;
+        this.#size = 0;
+    }
+
+    get size(){
+        return this.#size;
     }
 
     remove(index) {
-        if (index < 0 || index >= this.size) {
+        if (index < 0 || index >= this.#size) {
             throw new Error('Index is out of bounds!');
         }
 
-        this.size--
+        this.#size--
         let prevNode = this.#head;
         let id = 0;
 
-        if (this.size === 0) {
+        if (this.#size === 0) {
             this.#head = null;
             this.#tail = null;
 
@@ -33,7 +37,7 @@ class DoubleLinkedList {
             return prevNode;
         }
 
-        if (index === this.size) {
+        if (index === this.#size) {
             let output = this.#tail;
             this.#tail.prev.next = null;
             this.#tail = this.#tail.prev;
@@ -41,7 +45,7 @@ class DoubleLinkedList {
             return output;
         }
 
-        if (index <= size / 2) {
+        if (index <= #size / 2) {
 
             while (id < index) {
                 prevNode = prevNode.next;
@@ -50,7 +54,7 @@ class DoubleLinkedList {
 
         } else {
             prevNode = this.#tail;
-            id = this.size;
+            id = this.#size;
 
             while (id > index) {
                 prevNode = prevNode.prev;
@@ -66,12 +70,12 @@ class DoubleLinkedList {
     }
 
     insert(index, data) {
-        if (index < 0 || index > this.size) {
+        if (index < 0 || index > this.#size) {
             throw new Error('Index is out of bounds!');
         }
 
         const node = new Node(data);
-        this.size++;
+        this.#size++;
 
         if (!this.#head) {
             this.#head = node;
@@ -87,7 +91,7 @@ class DoubleLinkedList {
             return;
         }
 
-        if (index === this.size) {
+        if (index === this.#size) {
             this.#tail.next = node;
             node.prev = this.#tail;
 
@@ -98,7 +102,7 @@ class DoubleLinkedList {
         let prevNode = this.#head;
         let id = 0;
 
-        if (index <= size / 2) {
+        if (index <= #size / 2) {
 
             while (id < index) {
                 prevNode = prevNode.next;
@@ -107,7 +111,7 @@ class DoubleLinkedList {
 
         } else {
             prevNode = this.#tail;
-            id = this.size;
+            id = this.#size;
 
             while (id > index) {
                 prevNode = prevNode.prev;
@@ -132,4 +136,9 @@ class Node {
         this.next = null;
         this.prev = null;
     }
+}
+
+
+module.exports = {
+    Node, DoubleLinkedList
 }
