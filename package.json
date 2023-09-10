@@ -1,0 +1,14 @@
+{
+  "name": "data-structures",
+  "private": "true",
+  "scripts": {
+    "test": "jest ./__tests__/*",
+    "prepare": "husky install"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "husky": "^8.0.0",
+    "jest": "^29.6.4",
+    "prettier": "^3.0.3"
+  }
+}

@@ -1,24 +1,38 @@
 class DoubleLinkedList {
     #head;
     #tail;
+<<<<<<<< HEAD:DoubleLinkedList.js
+========
+
+>>>>>>>> master:src/DoubleLinkedList.js
     #size;
 
     constructor() {
         this.#head = null;
         this.#tail = null;
         this.#size = 0;
+<<<<<<<< HEAD:DoubleLinkedList.js
     }
 
     get size() {
         return this.#size;
+========
+>>>>>>>> master:src/DoubleLinkedList.js
     }
 
     remove(index) {
         if (index < 0 || index >= this.#size) {
+<<<<<<<< HEAD:DoubleLinkedList.js
             throw new Error('Index is out of bounds!');
         }
 
         this.#size--
+========
+            throw new Error("Index is out of bounds!");
+        }
+
+        this.#size--;
+>>>>>>>> master:src/DoubleLinkedList.js
         let prevNode = this.#head;
         let id = 0;
 
@@ -45,12 +59,14 @@ class DoubleLinkedList {
         }
 
         if (index <= this.#size / 2) {
+<<<<<<<< HEAD:DoubleLinkedList.js
 
+========
+>>>>>>>> master:src/DoubleLinkedList.js
             while (id < index) {
                 prevNode = prevNode.next;
                 id++;
             }
-
         } else {
             prevNode = this.#tail;
             id = this.#size;
@@ -69,10 +85,18 @@ class DoubleLinkedList {
 
     insert(index, data) {
         if (index < 0 || index > this.#size) {
+<<<<<<<< HEAD:DoubleLinkedList.js
             throw new Error('Index is out of bounds!');
         }
 
         const node = new Node(data);
+========
+            throw new Error("Index is out of bounds!");
+        }
+
+        const node = new Node(data);
+        this.#size++;
+>>>>>>>> master:src/DoubleLinkedList.js
 
         if (!this.#head) {
             this.#head = node;
@@ -92,7 +116,11 @@ class DoubleLinkedList {
             return;
         }
 
+<<<<<<<< HEAD:DoubleLinkedList.js
         if (index === this.#size) {
+========
+        if (index === this.#size - 1) {
+>>>>>>>> master:src/DoubleLinkedList.js
             this.#tail.next = node;
             node.prev = this.#tail;
 
@@ -105,13 +133,16 @@ class DoubleLinkedList {
         let prevNode = this.#head;
         let id = 0;
 
+<<<<<<<< HEAD:DoubleLinkedList.js
         if (index <= this.#size / 2) {
 
+========
+        if (index <= this.#size - 1 / 2) {
+>>>>>>>> master:src/DoubleLinkedList.js
             while (id < index) {
                 prevNode = prevNode.next;
                 id++;
             }
-
         } else {
             prevNode = this.#tail;
             id = this.#size;
@@ -122,11 +153,19 @@ class DoubleLinkedList {
             }
         }
 
+<<<<<<<< HEAD:DoubleLinkedList.js
         node.next = prevNode
+========
+        node.next = prevNode.next;
+>>>>>>>> master:src/DoubleLinkedList.js
         node.prev = prevNode;
         node.next.prev = node;
         prevNode.next = node;
         this.#size++;
+    }
+
+    get size() {
+        return this.#size;
     }
 }
 
@@ -143,4 +182,8 @@ class Node {
 }
 
 module.exports.Node = Node;
+<<<<<<<< HEAD:DoubleLinkedList.js
 module.exports.DoubleLinkedList = DoubleLinkedList;
+========
+module.exports.DoubleLinkedList = DoubleLinkedList;
+>>>>>>>> master:src/DoubleLinkedList.js

@@ -34,3 +34,5 @@ class Queue {
         return output;
     }
 }
+
+module.exports.Queue = Queue;
