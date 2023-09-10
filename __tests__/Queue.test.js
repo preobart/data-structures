@@ -1,0 +1,21 @@
+const { Queue } = require("../src/Queue.js");
+
+const array = Array.from({ length: 10 }, (_, index) => Math.random() * 10);
+const queue = new Queue();
+
+describe("Queue.js tests", function () {
+    test("should equals 0", function () {
+        expect(queue.size).toBe(0);
+    });
+
+    test(`should equals ${array.length}`, function () {
+        array.forEach((item) => queue.push(item));
+
+        expect(queue.size).toBe(array.length);
+    });
+
+    test(`lasts should equal twice`, function () {
+        expect(queue.shift()).toBe(array.shift());
+        expect(queue.shift()).toBe(array.shift());
+    });
+});

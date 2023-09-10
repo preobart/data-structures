@@ -12,7 +12,7 @@ class Queue {
         this.size++;
     }
 
-    pop() {
+    shift() {
         if (this.size === 0) {
             return;
         }
@@ -30,3 +30,5 @@ class Queue {
         return output;
     }
 }
+
+module.exports.Queue = Queue;
