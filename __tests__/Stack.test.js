@@ -1,4 +1,4 @@
-const { Stack } = require("../src/Stack.js");
+const { Stack } = require("../src/Stack1.js");
 
 const array = Array.from({ length: 10 }, (_, index) => Math.random() * 10);
 const stack = new Stack();

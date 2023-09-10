@@ -1,4 +1,4 @@
-const { Deque } = require("../src/Deque.js");
+const { Deque } = require("../src/Deque1.js");
 
 const array = Array.from({ length: 10 }, (_, index) => Math.random() * 10);
 const deque = new Deque();
