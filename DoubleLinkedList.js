@@ -1,7 +1,6 @@
 class DoubleLinkedList {
     #head;
     #tail;
-
     #size;
 
     constructor() {
@@ -10,7 +9,7 @@ class DoubleLinkedList {
         this.#size = 0;
     }
 
-    get size(){
+    get size() {
         return this.#size;
     }
 
@@ -27,14 +26,14 @@ class DoubleLinkedList {
             this.#head = null;
             this.#tail = null;
 
-            return prevNode;
+            return prevNode.data;
         }
 
         if (index === 0) {
             this.#head.next.prev = null;
             this.#head = this.#head.next;
 
-            return prevNode;
+            return prevNode.data;
         }
 
         if (index === this.#size) {
@@ -42,10 +41,10 @@ class DoubleLinkedList {
             this.#tail.prev.next = null;
             this.#tail = this.#tail.prev;
 
-            return output;
+            return output.data;
         }
 
-        if (index <= #size / 2) {
+        if (index <= this.#size / 2) {
 
             while (id < index) {
                 prevNode = prevNode.next;
@@ -65,8 +64,7 @@ class DoubleLinkedList {
         prevNode.prev.next = prevNode.next;
         prevNode.next.prev = prevNode.prev;
 
-        return prevNode;
-
+        return prevNode.data;
     }
 
     insert(index, data) {
@@ -75,11 +73,12 @@ class DoubleLinkedList {
         }
 
         const node = new Node(data);
-        this.#size++;
 
         if (!this.#head) {
             this.#head = node;
             this.#tail = node;
+            this.#size++;
+
             return;
         }
 
@@ -88,6 +87,8 @@ class DoubleLinkedList {
             node.next = this.#head;
 
             this.#head = node;
+            this.#size++;
+
             return;
         }
 
@@ -96,13 +97,15 @@ class DoubleLinkedList {
             node.prev = this.#tail;
 
             this.#tail = node;
+            this.#size++;
+
             return;
         }
 
         let prevNode = this.#head;
         let id = 0;
 
-        if (index <= #size / 2) {
+        if (index <= this.#size / 2) {
 
             while (id < index) {
                 prevNode = prevNode.next;
@@ -119,10 +122,11 @@ class DoubleLinkedList {
             }
         }
 
-        node.next = prevNode.next
+        node.next = prevNode
         node.prev = prevNode;
         node.next.prev = node;
         prevNode.next = node;
+        this.#size++;
     }
 }
 
@@ -138,7 +142,5 @@ class Node {
     }
 }
 
-
-module.exports = {
-    Node, DoubleLinkedList
-}
+module.exports.Node = Node;
+module.exports.DoubleLinkedList = DoubleLinkedList;

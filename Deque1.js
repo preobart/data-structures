@@ -1,30 +1,29 @@
-const DoubleLinkedList = require('./DoubleLinkedList');
+const {DoubleLinkedList} = require('./DoubleLinkedList.js');
+
 class Deque1 {
     #data;
-    #size;
 
     constructor() {
         this.#data = new DoubleLinkedList();
-        this.#size = 0;
+    }
+
+    get size() {
+        return this.#data.size;
     }
 
     push(item) {
         this.#data.insert(this.#data.size, item)
-        this.#size = this.#data.size
     }
 
     pop() {
-        this.#data.remove(this.#data.size-1)
-        this.#size = this.#data.size
+        return this.#data.remove(this.#data.size - 1)
     }
+
     shift() {
-        this.#data.remove(0)
-        this.#size = this.#data.size
+        return this.#data.remove(0)
     }
 
     unshift(item) {
         this.#data.insert(0, item)
-        this.#size = this.#data.size
     }
 }
-
