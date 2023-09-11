@@ -1,10 +1,10 @@
-const { Queue } = require("../src/Queue1.js");
+const { Queue } = require('../src/Queue.js');
 
 const array = Array.from({ length: 10 }, (_, index) => Math.random() * 10);
 const queue = new Queue();
 
-describe("Queue.js tests", function () {
-    test("should equals 0", function () {
+describe('Queue.js tests', function () {
+    test('should equals 0', function () {
         expect(queue.size).toBe(0);
     });
 

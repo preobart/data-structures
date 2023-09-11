@@ -1,37 +1,22 @@
+const { DoubleLinkedList } = require('./DoubleLinkedList');
+
 class Queue {
-    #queue;
-    size;
+    #data;
 
     constructor() {
-        this.size = 0;
-        this.#queue = {};
+        this.#data = new DoubleLinkedList();
     }
 
-    unshift(item) {
-        for (let i = this.size; i > 0; i--) {
-            this.#queue[i] = this.#queue[i - 1];
-        }
-
-        this.#queue[0] = item
-        this.size++
+    get size() {
+        return this.#data.size;
     }
 
     shift() {
-        if (this.size === 0) {
-            return;
-        }
+        return this.#data.remove(0);
+    }
 
-        const output = this.#queue[0];
-
-        for (let i = 0; i < this.size - 1; i++) {
-            this.#queue[i] = this.#queue[i + 1];
-        }
-
-        delete this.#queue[this.size - 1];
-
-        this.size--;
-
-        return output;
+    unshift(item) {
+        this.#data.insert(0, item);
     }
 }
 

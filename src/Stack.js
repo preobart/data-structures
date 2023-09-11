@@ -1,33 +1,22 @@
+const { DoubleLinkedList } = require('./DoubleLinkedList');
+
 class Stack {
-    #stack;
-    #size;
+    #data;
+
+    get size() {
+        return this.#data.size;
+    }
 
     constructor() {
-        this.#size = 0;
-        this.#stack = {};
+        this.#data = new DoubleLinkedList();
     }
 
     push(item) {
-        this.#stack[this.#size] = item;
-        this.#size++;
+        this.#data.insert(this.#data.size, item);
     }
 
     pop() {
-        if (this.#size === 0) {
-            return;
-        }
-
-        const output = this.#stack[this.#size - 1];
-
-        delete this.#stack[this.#size - 1];
-
-        this.#size--;
-
-        return output;
-    }
-
-    get size() {
-        return this.#size;
+        return this.#data.remove(this.#data.size - 1);
     }
 }
 

@@ -1,10 +1,10 @@
-const { Stack } = require("../src/Stack1.js");
+const { Stack } = require('../src/Stack.js');
 
 const array = Array.from({ length: 10 }, (_, index) => Math.random() * 10);
 const stack = new Stack();
 
-describe("Stack.js tests", function () {
-    test("should equals 0", function () {
+describe('Stack.js tests', function () {
+    test('should equals 0', function () {
         expect(stack.size).toBe(0);
     });
 

@@ -1,10 +1,10 @@
-const { Deque } = require("../src/Deque1.js");
+const { Deque } = require('../src/Deque.js');
 
 const array = Array.from({ length: 10 }, (_, index) => Math.random() * 10);
 const deque = new Deque();
 
-describe("Deque.js tests", function () {
-    test("should equals 0", function () {
+describe('Deque.js tests', function () {
+    test('should equals 0', function () {
         expect(deque.size).toBe(0);
     });
 

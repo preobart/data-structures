@@ -18,7 +18,7 @@ class DoubleLinkedList {
             throw new Error('Index is out of bounds!');
         }
 
-        this.#size--
+        this.#size--;
         let prevNode = this.#head;
         let id = 0;
 
@@ -45,12 +45,10 @@ class DoubleLinkedList {
         }
 
         if (index <= this.#size / 2) {
-
             while (id < index) {
                 prevNode = prevNode.next;
                 id++;
             }
-
         } else {
             prevNode = this.#tail;
             id = this.#size;
@@ -106,12 +104,10 @@ class DoubleLinkedList {
         let id = 0;
 
         if (index <= this.#size / 2) {
-
             while (id < index) {
                 prevNode = prevNode.next;
                 id++;
             }
-
         } else {
             prevNode = this.#tail;
             id = this.#size;
@@ -122,7 +118,7 @@ class DoubleLinkedList {
             }
         }
 
-        node.next = prevNode
+        node.next = prevNode;
         node.prev = prevNode;
         node.next.prev = node;
         prevNode.next = node;

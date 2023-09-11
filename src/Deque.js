@@ -1,56 +1,30 @@
+const { DoubleLinkedList } = require('./DoubleLinkedList.js');
+
 class Deque {
-    #size;
-    #deque;
+    #data;
 
     constructor() {
-        this.#size = 0;
-        this.#deque = {};
-    }
-
-    push(item) {
-        this.#deque[this.#size] = item;
-        this.#size++;
-    }
-
-    shift() {
-        if (this.#size === 0) {
-            return;
-        }
-        const output = this.#deque[0];
-
-        for (let i = 0; i < this.#size - 1; i++) {
-            this.#deque[i] = this.#deque[i + 1];
-        }
-
-        delete this.#deque[this.#size - 1];
-        this.#size--;
-
-        return output;
-    }
-
-    pop() {
-        if (this.#size === 0) {
-            return;
-        }
-        const output = this.#deque[this.#size - 1];
-
-        delete this.#deque[this.#size - 1];
-        this.#size--;
-
-        return output;
-    }
-
-    unshift(item) {
-        for (let i = this.#size; i > 0; i--) {
-            this.#deque[i] = this.#deque[i - 1];
-        }
-
-        this.#deque[0] = item;
-        this.#size++;
+        this.#data = new DoubleLinkedList();
     }
 
     get size() {
-        return this.#size;
+        return this.#data.size;
+    }
+
+    push(item) {
+        this.#data.insert(this.#data.size, item);
+    }
+
+    pop() {
+        return this.#data.remove(this.#data.size - 1);
+    }
+
+    shift() {
+        return this.#data.remove(0);
+    }
+
+    unshift(item) {
+        this.#data.insert(0, item);
     }
 }
 
